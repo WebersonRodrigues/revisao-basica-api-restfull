@@ -1,0 +1,20 @@
+
+Quando vamos criar uma API temos que seguir uma regra certo?
+
+1° Model - Aquilo que vamos persistir - OK
+2° Repository - Camada de persistencia - OK
+3° Shared - Camada de compartilhamento - OK
+4° Service - Camanda da regra de negocio - OK
+5° Controller - Camada onde chega as requisições - OK
+
+
+Dicas importantes:
+
+# - Sempre seguir o passo lógico para criar as classes.
+# - Não criar classes no plural, você perderá 1 ponto ;)
+# - Escrever o código bem indentado, bem feito, bem organizado.
+# - Não ficar misturando nomenclaruturas, ingles e portugues.
+# - Se atentem as regras de boas praticas da linguagem.
+# - Não ficar abreviando propriedades, variáveis e parametros.
+# - Não ficar criando variáveis e parametros sem sentido.
+# - Pegar exemplos de outros códigos que vocês ja fizeram.
