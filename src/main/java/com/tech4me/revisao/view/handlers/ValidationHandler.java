@@ -18,6 +18,7 @@ public class ValidationHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
         MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request){
 
+        // Transforma a lista de erros em uma lista de string.
         List<String> erros = ex.getBindingResult()
         .getFieldErrors()
         .stream()
