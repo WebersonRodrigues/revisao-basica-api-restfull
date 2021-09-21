@@ -1,9 +1,16 @@
 package com.tech4me.revisao.shared;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class JogoDTO {
     
     private String id;
 
+    @NotBlank(message = "O nome deve possuir caracteres não brancos")
+    @NotEmpty(message = "O nome deve ser preenchido")
+    @Size(min = 3, message = "O nome deve ter, no mínimo, 3 caracteres")
     private String nome;
 
     private Integer anoLancamento;

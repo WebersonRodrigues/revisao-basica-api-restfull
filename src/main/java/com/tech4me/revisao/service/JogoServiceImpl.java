@@ -11,7 +11,9 @@ import com.tech4me.revisao.shared.JogoDTO;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class JogoServiceImpl implements JogoService {
 
     @Autowired
@@ -75,6 +77,17 @@ public class JogoServiceImpl implements JogoService {
     public void delete(String idJogo) {
         // Aqui poderia criar uma logica para saber se o jogo existe com esse id.
         repositorioJogo.deleteById(idJogo);
+    }
+
+    @Override
+    public JogoDTO atualizar(String id, JogoDTO jogoDto) {
+                
+        jogoDto.setId(id);
+
+        Jogo jogo = new ModelMapper().map(jogoDto, Jogo.class);
+        repositorioJogo.save(jogo);
+
+        return jogoDto;
     }
     
 }

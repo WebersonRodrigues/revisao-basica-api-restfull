@@ -7,7 +7,7 @@ import com.tech4me.revisao.shared.JogoDTO;
 
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface JogoService {
     
     List<JogoDTO> obterTodos();
@@ -15,6 +15,8 @@ public interface JogoService {
     Optional<JogoDTO> obterPorId(String idJogo);
 
     JogoDTO adicionar(JogoDTO jogoDto);
+
+    JogoDTO atualizar(String id, JogoDTO jogoDto);
 
     void delete(String idJogo);
 

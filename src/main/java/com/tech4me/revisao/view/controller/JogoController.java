@@ -1,7 +1,9 @@
-package com.tech4me.revisao.controller;
+package com.tech4me.revisao.view.controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 import com.tech4me.revisao.service.JogoService;
 import com.tech4me.revisao.shared.JogoDTO;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +44,7 @@ public class JogoController {
     }
 
     @PostMapping
-    public ResponseEntity<JogoDTO> adicionar(@RequestBody JogoDTO jogoDto ){
+    public ResponseEntity<JogoDTO> adicionar(@RequestBody @Valid JogoDTO jogoDto ){
         // Aqui mando o serviço adicionar o novo jogo
         jogoDto = servicoJogo.adicionar(jogoDto);
 
@@ -53,5 +56,12 @@ public class JogoController {
     public ResponseEntity<?> deletar(@PathVariable String id){
         servicoJogo.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<JogoDTO> atualizar(@PathVariable String id, @RequestBody @Valid JogoDTO jogoDto){
+
+        JogoDTO dto = servicoJogo.atualizar(id, jogoDto);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 }
